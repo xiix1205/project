@@ -1,16 +1,12 @@
 package sign;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import sign.PwFindProcCommand;
-import sign.Command;
 
 @WebServlet("*.do")
 public class PwAction extends HttpServlet {
@@ -32,7 +28,9 @@ public class PwAction extends HttpServlet {
             action = new PwFindProcCommand();
             System.out.println("페이지이동완료1");
             try{
-               action.execute(request, response); 
+               action.execute(request, response);
+               response.sendRedirect("../login/login.jsp");
+               System.out.println("페이지이동완료3");
             }catch(Exception e){
                e.printStackTrace();
             }

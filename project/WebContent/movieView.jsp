@@ -60,9 +60,10 @@ document.querySelector('.review_button1').addEventListener('click', function(){
 </style>
 <body>
     <div id="wrapper">
+    	<a name="top"></a>
          <header id="header">
               <h1 class="title" onclick="javascript:location.href='main/main.jsp'">MOVIEMOA</h1>
-            <form method="post" action="main/search.jsp" class="login">
+            <form method="post" action="search.jsp" class="login">
                <%if (id != null) {%>
                  <span id="hi"><%=id %> 님, 반갑습니다.</span>
                  <button type="button" class="login" onclick="javascript:location.href='login/logout.jsp'">Logout</button>
@@ -78,7 +79,7 @@ document.querySelector('.review_button1').addEventListener('click', function(){
                   <span class="btn" onclick="javascript:location.href='movieList.mo'">MovieInfo</span>
                   <span class="btn" onclick="javascript:location.href='subpage/boardList.bo?boardtype=BOARDALL'">MovieTalk</span>
                   <span class="btn" onclick="javascript:location.href='news/list.jsp?listtype=1'">MovieNEWS</span>
-                  <span class="btn" onclick="javascript:location.href='main/loc.jsp'">Theater</span> 
+                  <span class="btn" onclick="javascript:location.href='news/list.jsp'">Theater</span> 
               </nav>
                   
          </header>
@@ -102,6 +103,7 @@ document.querySelector('.review_button1').addEventListener('click', function(){
    				</ul>
    			</div>
    		</div>
+   		
         <div id="banner"></div>
         
 <!--메인-->
@@ -286,6 +288,10 @@ document.querySelector('.review_button1').addEventListener('click', function(){
             </section>
             <!-- //////////////////////////////////////////////네티즌 리뷰 끝///////////////////////////-->
             
+            <a href="#top" class="top">
+            	<img src="images/top.jpg">
+            </a>
+			
         </div>
 
         

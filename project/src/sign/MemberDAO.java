@@ -9,19 +9,9 @@ import javax.sql.DataSource;
 import static db.JdbcUtil.*;
 
 public class MemberDAO {
-	
-	DBConnectionMgr pool;
-	public MemberDAO(){
-		try {
-			pool = DBConnectionMgr.getInstance();
-		}catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("데이터베이스 연결 실패");
-		}
-	}
-	
 	DataSource ds;
 	Connection conn;
+	private Connection con;
 	
 
 	   
@@ -33,7 +23,11 @@ public class MemberDAO {
 	      }
 	      return memberDAO;
 	}
-
+	
+	 public void setConnection(Connection con){
+	      this.con = con;
+	   }
+	
 	public String PwFind(String id, String email)throws SQLException{
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -60,26 +54,25 @@ public class MemberDAO {
 	}
 		
 
-	public int updateSecondPw(String pwd,String id)throws SQLException{
-		int update = 0;
+	public void updateSecondPw(String pw, String receiver_id)throws SQLException{
 		Connection conn = null;
 		PreparedStatement ps = null;
-		String sql = "update user set pwd = ? where id = ?";
+		String sql = "UPDATE user SET pwd = ? WHERE id = ?";
 		
 		try {
 			conn = getConnection();
-			ps = conn.prepareStatement(sql);
-			ps.setString(1, pwd);
-			ps.setString(2, id);
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, pw);
+			ps.setString(2, receiver_id);
+			ps.executeUpdate();
+			System.out.println("비밀번호"  + pw);
+			System.out.println("아이디"  + receiver_id);
+			conn.commit();
 			
-			update = ps.executeUpdate();
-		}catch(Exception e) {
-			e.printStackTrace();
+		}finally {
+			if(ps != null) ps.close();
+			if(conn != null) conn.close();
 		}
-		finally {
-			pool.freeConnection(conn, ps);
-		}
-		return update;
 	}
 
 

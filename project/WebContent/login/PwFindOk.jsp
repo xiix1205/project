@@ -50,9 +50,9 @@
 	<div id="findpwd">
 		<form action="PwFindProc.do">
 		<h5>아이디</h5>
-		<input type="text" name="id">
+		<input type="text" name="id" required="required"/>
 		<h5>이메일</h5>
-		<input type="text" name="email"><br>
+		<input type="text" name="email" required="required"/><br>
 		<p>가입 당시 입력한 이메일로 비밀번호 재설정 메일을 발송합니다.</p>
 		<input type="submit" value="전송">
 		<input type="button" value="취소" onclick="location.href='login.jsp'"/>
