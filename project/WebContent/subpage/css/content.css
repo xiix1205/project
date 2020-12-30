@@ -1,0 +1,227 @@
+.contentWrap {
+    flex-basis: 1200px;  width: 1200px;
+    margin: 0; padding: 50px;
+    flex-grow: 0; flex-shrink: 0;
+}
+
+.container .contentWrap .sub_tit_wrap { display: inline-block; width:235px; height:50px; margin-top : 30px;}
+.container .contentWrap .sub_tit_wrap2 { display: inline-block; width:500px; height:70px; margin-top : 30px;}
+
+.contit { font-size: 45px; font-weight: 500; margin-right :15px; }
+.container .contentWrap .sub_tit_wrap2 p {  line-height: 3px;}
+
+.contentArea {
+    padding: 20px 0px 0 0px;
+    border-top: 1px solid #c7c7c7;
+    margin-bottom: 20px;
+}
+
+.contentWrap .contentArea .tit {
+    font-size: 24px;
+    font-weight : 500;
+    color: #222;
+    margin: 15px 0px 15px 0px;
+    text-indent: 0px;
+}
+
+/* �뜝�럩�굚�뜝�럡�뎽�뜝�럩�겱 �뜝�럩�젧�솻洹⑥삕, �댖怨뚰�э옙�뤂�뜝�럥�빢 */
+.contentWrap .contentArea .info {
+    background: #f5f5f5;
+    border-top: 1px solid #c7c7c7; border-bottom: 1px solid #c7c7c7;
+    padding: 10px 15px 10px 15px;
+}
+
+.contentWrap .contentArea .info ul,
+.contentWrap .contentArea .info li { list-style: none; }
+
+.contentWrap .contentArea .info ul { font-size: 14px; }
+.contentWrap .contentArea .info li {
+    display: inline-block;
+    padding-right: 13px;
+}
+
+.contentWrap .contentArea .info li:first-child:before {
+    content: '|';
+    color: #777;
+    margin: 0px 10px 0px 20px;
+}
+
+.contentWrap .contentArea .info li:nth-child(2) span:before {
+	content: '| ';
+    color: #a3a3a3;
+    
+}
+
+.contentWrap .contentArea .info li:nth-child(3) span:before {
+	content: '| ';
+    color: #a3a3a3;
+}
+
+.contentWrap .contentArea .info li:nth-child(n+2):nth-child(-n+3) { float: right; margin-right : 10px;}
+
+
+/*�솻洹ｌ굡�룇 */
+.contentWrap .contentArea .content {
+    padding: 30px 30px 20px 35px;
+    font-size : 13px;
+}
+
+.contentWrap .contentArea .contentEdit {
+    position: relative;
+    margin: 20px 0px 60px 0px;
+}
+
+.contentWrap .contentArea .contentEdit a {
+    display: inline-block;
+    padding: 7px 12px;
+    margin: 0px 8px 0px 0px;
+    background: #d2d2d2;
+    border-radius: 1px;
+    border: 1px solid #c7c7c7;
+    box-shadow: 1px 1px 1px #dddddd;
+    font-size: 0;
+    float: right;
+}
+
+.contentWrap .contentArea .contentEdit a:first-child {
+    background: #444;
+}
+
+.contentWrap .contentArea .contentEdit a span {
+    font-size: 12px;
+    color: white;
+}
+
+
+/*�뜝�럥�냺�뼨�먯삕 �뜝�룞�삕�뜝�럩逾졾뜝�룞�삕*/
+.contentWrap .contentArea .commentTit {
+    background: #f5f5f5;
+    border-top: 1px solid #c7c7c7;
+    border-bottom: 1px solid #c7c7c7;
+    padding: 10px 15px 10px 15px;
+    font-size : 14px;
+}
+
+.contentWrap .contentArea .commentTit span:first-child:before {
+    content: '|';
+    color: #777;
+    margin: 0px 10px 0px 20px;
+}
+
+
+.contentWrap .commentArea .comment_list, 
+.contentWrap .commentArea .comment_list li { list-style: none; }
+
+.contentWrap .commentArea .comment_list li {
+    border-bottom: 1px solid #dddddd;
+}
+
+.contentWrap .commentArea .comment_list li:last-child {
+    border: none;
+}
+
+.contentWrap .commentArea .comment_list .coment {
+    position: relative;
+    margin-bottom: 5px;
+    padding: 10px 20px 15px 20px;
+}
+
+.comment_list .coment .comentHead {
+    margin: 8px 0;
+}
+
+.comment_list .coment .comentHead .name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.comment_list .coment .comentHead .name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.comment_list .coment .time,
+.comment_list .coment .btn_delete {
+    float: right;
+    padding: 0px 5px;
+    font-size: 11px;
+    color: #999;
+    line-height : 10px;
+}
+
+.comment_list .coment .btn_delete:hover {
+    text-decoration: underline;
+}
+
+.comment_list .coment .comentBody .reply {
+    font-size: 13px;
+    color: #444;
+}
+
+/*�뜝�럥�냺�뼨�먯삕 �뜝�럥苡븀뼨�먯삕*/
+.contentWrap .commentArea .comment_write {
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    padding: 20px 15px 20px 15px;
+    margin-bottom: 20px;
+}
+
+.contentWrap .commentArea .comment_write .c_div {
+    width: 870px;
+    height: 72px;
+    margin: 0 auto;
+    /* font-size: 0; */
+    position: relative;
+}
+
+.contentWrap .commentArea .comment_write .writediv {
+    display: inline-block;
+}
+
+/*�뜝�럥�냺�뼨�먯삕 �뜝�럩�굚�뜝�럡�뎽 div*/
+.contentWrap .commentArea .comment_write .writediv .commentedit {
+    width: 750px;
+    height: 50px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #c7c7c7;
+    border-radius: 1px;
+    color: #555;
+    font-size: 12px;
+    resize: none;
+/*    �뜝�럥裕욃뜝�럡苡욕슖�댙�삕 �뤆�룊�삕�슖�댙�삕 �뜝�럥�뼔濚밸㉡�삕, �뜝�럡�돪�슖�댙�삕 �솻洹ｋ샍占쎈엮*/
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/*�뜝�럥�냺�뼨�먯삕 �뜝�럩�굚�뜝�럡�뎽 �뵓怨뚯뫓占쎈괏*/
+.contentWrap .commentArea .comment_write .btn_write {
+    position: absolute;
+    width: 98px;
+    height: 72px;
+    border-radius: 1px;
+    background: grey;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    line-height: 72px;
+}
+
+/* �뜝�럥由��뜝�럥堉� 嶺뚮∥��占쎈� */
+.contentWrap .contentArea .menu a {
+    display: inline-block;
+    padding: 7px 12px;
+    margin: 0px 8px 0px 0px;
+    background: #424242;
+    border-radius: 1px;
+    border: 1px solid #d2d2d2;
+    box-shadow: 1px 1px 1px #dddddd;
+    font-size: 0;
+    float: right;
+}
+
+.contentWrap .contentArea .menu a span {
+    font-size: 12px;
+    color: white;
+}
+

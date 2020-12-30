@@ -1,0 +1,119 @@
+/* 珥덇린�솕 肄붾뱶 */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* �몴 媛꾧꺽 �젣嫄� */
+table { border-collapse: collapse; }
+
+/* 罹≪뀡 �젣嫄� */
+caption { display: none; }
+
+#header .title {
+    margin : 20px 0;
+}
+
+/* 蹂몃Ц �꽮�뀡 */
+.wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    font-size: 13px;
+}
+
+/* 寃뚯떆�뙋 怨듯넻 �뿤�뜑 �쁺�뿭, �쁽�옱�뒗 �븞 ��*/
+/*
+.subHeader_area {
+    width: 100%;
+    border-bottom: 1px solid black;
+    position: relative;
+}
+
+.subHeader { font-size: 0; width: 970px; height: 60px; margin: 0 auto; }
+
+.subHeader, .subHeader li { list-style: none; text-align: center; }
+
+.subHeader li {
+    font-size: 0;
+    display: inline-block; width: 24%;
+    float: left;
+    border-left: 1px solid #dddddd;
+}
+.subHeader li:last-child { border-right: 1px solid #dddddd; }
+
+.subHeader li a {
+    display: block;
+    height: 60px;
+    line-height: 60px;
+}
+.subHeader li a:hover {
+    transition-property: background-color;
+    transition-duration: 0.3s;
+    background: #9b7f72;
+    color: white;
+}
+
+.subHeader li a span {
+    font-size: 18px;
+    font-weight: bold;
+}
+*/
+/* 寃뚯떆�뙋 怨듯넻 �뿤�뜑 �쁺�뿭 �걹 */
+
+
+/* 硫붿씤 而⑦뀗痢�(愿묎퀬,寃뚯떆�뙋,�떆怨�) */
+.container {
+    width: 1300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+
+/*愿묎퀬�쁺�뿭*/
+.wrap .ad_1 { flex-basis: 260px; width: 260px; height: 600px; flex-grow: 0; flex-shrink: 0; background: pink; margin-top: 250px; 
+    
+/*    �젣異쒖슜 �븘臾닿굅�굹 �꽔��嫄�*/
+    background-image: url(../imges/movieimg.jpg);
+    background-repeat: no-repeat;
+    background-size: 260px 600px;
+}
+
+/* �떆怨� �쁺�뿭 */
+.wrap .time_area { flex-basis: 140px; width: 120px; height: 280px; flex-grow: 0; flex-shrink: 0; margin: 300px 0px 0px 30px; }
+
+.wrap .time_area p {
+    font-size: 12px; text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.wrap .time_area .time_img{
+    width: 80px;
+    height: 80px;
+    background-image: url(../imges/time.png);
+    background-repeat: no-repeat;
+    background-size: 80px;
+    margin: auto;
+}
+
+.wrap .time_area .timeNotice {
+    margin: 10px 0px;
+    text-align: center;
+}
+
+.wrap .time_area .timeNotice .genre {
+    font-size: 12px;
+    font-weight: bold;
+}
+.wrap .time_area .timeNotice .genre_ment {
+    font-size: 11px;
+}
