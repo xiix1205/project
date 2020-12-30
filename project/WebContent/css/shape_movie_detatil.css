@@ -257,19 +257,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*   �냼�젣紐�   */
 .s_title{
     position: absolute;
@@ -495,7 +482,12 @@ span.star-prototype > * {
 	visibility: hidden;
 }
 
-
+.top img{
+	display: block;
+	margin: 0 auto;
+	width: 30px;
+	
+}
 
 /* 寃��깋�뤌, �럹�씠吏� 由ъ뒪�듃 �쁺�뿭 */
 #pageList {
