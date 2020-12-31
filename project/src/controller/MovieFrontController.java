@@ -17,6 +17,8 @@ import action.MovieRegistFormAction;
 import action.MovieReviewDeleteAction;
 import action.MovieReviewRegistAction;
 import action.MovieViewAction;
+import action.NewsListAction;
+import action.NewsRegistAction;
 import vo.ActionForward;
 
 
@@ -104,7 +106,23 @@ public class MovieFrontController extends HttpServlet {
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-		}
+		}else if(command.equals("/newsRegist.mo")) {
+	    	  action = new NewsRegistAction();
+	    	  
+	    	  try {
+	    		  forward = action.execute(request, response);
+	    	  }catch(Exception e) {
+	    		  e.printStackTrace();
+	    	  }
+	    }else if(command.equals("/newsList.mo")) {
+	    	  action = new NewsListAction();
+	    	  
+	    	  try {
+	    		  forward = action.execute(request, response);
+	    	  }catch(Exception e) {
+	    		  e.printStackTrace();
+	    	  }
+	    }
       
     
       

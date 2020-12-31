@@ -105,7 +105,7 @@
              <nav id="nav">
                   <span class="btn" onclick="javascript:location.href='../movieList.mo'">MovieInfo</span>
                   <span class="btn" onclick="javascript:location.href='../subpage/boardList.bo?boardtype=BOARDALL'">MovieTalk</span>
-                  <span class="btn" onclick="javascript:location.href='../news/list.jsp?listtype=1'">MovieNEWS</span>
+                  <span class="btn" onclick="javascript:location.href='../newsList.mo'">MovieNEWS</span>
                   <span class="btn" onclick="javascript:location.href='../main/loc.jsp'">Theater</span> 
               </nav>
                   

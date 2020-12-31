@@ -1,23 +1,23 @@
-/* 珥덇린�솕 肄붾뱶 */
+/* �룯�뜃由곤옙�넅 �굜遺얜굡 */
 
-* {
+/* * {
     margin: 0;
     padding: 0;
-}
+}*/
 
 a { text-decoration: none; color: inherit; }
 
-/* �몴 媛꾧꺽 �젣嫄� */
+/* 占쎈ご 揶쏄쑨爰� 占쎌젫椰꾬옙 */
 table { border-collapse: collapse; }
 
-/* 罹≪뀡 �젣嫄� */
+/* 筌╈돦�� 占쎌젫椰꾬옙 */
 caption { display: none; }
 
-#header .title {
+/*#header .title {
     margin : 20px 0;
-}
+}*/
 
-/* 蹂몃Ц �꽮�뀡 */
+/* 癰귣챶揆 占쎄쉰占쎈�� */
 .wrap {
     display: flex;
     flex-direction: row;
@@ -27,7 +27,12 @@ caption { display: none; }
     font-size: 13px;
 }
 
-/* 寃뚯떆�뙋 怨듯넻 �뿤�뜑 �쁺�뿭, �쁽�옱�뒗 �븞 ��*/
+.wrap * {
+    margin: 0;
+    padding: 0;	
+}
+
+/* 野껊슣�뻻占쎈솇 �⑤벏�꽰 占쎈엘占쎈쐭 占쎌겫占쎈열, 占쎌겱占쎌삺占쎈뮉 占쎈툧 占쏙옙*/
 /*
 .subHeader_area {
     width: 100%;
@@ -64,10 +69,10 @@ caption { display: none; }
     font-weight: bold;
 }
 */
-/* 寃뚯떆�뙋 怨듯넻 �뿤�뜑 �쁺�뿭 �걹 */
+/* 野껊슣�뻻占쎈솇 �⑤벏�꽰 占쎈엘占쎈쐭 占쎌겫占쎈열 占쎄국 */
 
 
-/* 硫붿씤 而⑦뀗痢�(愿묎퀬,寃뚯떆�뙋,�떆怨�) */
+/* 筌롫뗄�뵥 �뚢뫂�쀯㎘占�(�꽴臾롰��,野껊슣�뻻占쎈솇,占쎈뻻�⑨옙) */
 .container {
     width: 1300px;
     display: flex;
@@ -78,16 +83,16 @@ caption { display: none; }
 }
 
 
-/*愿묎퀬�쁺�뿭*/
+/*�꽴臾롰�э옙�겫占쎈열*/
 .wrap .ad_1 { flex-basis: 260px; width: 260px; height: 600px; flex-grow: 0; flex-shrink: 0; background: pink; margin-top: 250px; 
     
-/*    �젣異쒖슜 �븘臾닿굅�굹 �꽔��嫄�*/
+/*    占쎌젫�빊�뮇�뒠 占쎈툡�눧�떯援낉옙援� 占쎄퐫占쏙옙椰꾬옙*/
     background-image: url(../imges/movieimg.jpg);
     background-repeat: no-repeat;
     background-size: 260px 600px;
 }
 
-/* �떆怨� �쁺�뿭 */
+/* 占쎈뻻�⑨옙 占쎌겫占쎈열 */
 .wrap .time_area { flex-basis: 140px; width: 120px; height: 280px; flex-grow: 0; flex-shrink: 0; margin: 300px 0px 0px 30px; }
 
 .wrap .time_area p {

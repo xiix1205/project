@@ -76,6 +76,8 @@
 <meta charset="EUC-KR">
 <title>MOVIE</title>
 
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="jquery.js"></script>
     <script src="../js/jquery.bxslider.min.js"></script>
@@ -90,7 +92,8 @@
           auto: true,
           pause:4000,
           speed:600,  
-          pager:false,
+          pager:false
+
          
       });
   });
@@ -127,7 +130,7 @@
              <nav id="nav">
                   <span class="btn" onclick="javascript:location.href='../movieList.mo'">MovieInfo</span>
                   <span class="btn" onclick="javascript:location.href='../subpage/boardList.bo?boardtype=BOARDALL'">MovieTalk</span>
-                  <span class="btn" onclick="javascript:location.href='../news/list.jsp?listtype=1'">MovieNEWS</span>
+                  <span class="btn" onclick="javascript:location.href='../newsList.mo'">MovieNEWS</span>
                   <span class="btn" onclick="javascript:location.href='loc.jsp'">Theater</span> 
               </nav>
             </header>  
@@ -317,7 +320,7 @@
 						%>
                         <li>
                             <a href="../news/read.jsp?num=<%=news_num%>&listtype=1">
-                               <%=img_a%>  
+                              <img src="../newsfile/<%=img_a%>" class="news_thumb">   
                                 <div class="news_text">
                                 <p class="news_title">
                                     <%=news_subject%>
@@ -330,7 +333,7 @@
                         </li>
                         <% } %>
                         
-                          <div class="news_plus"><a href="../news/list.jsp?listtype=1">MORE</a></div>
+                          <div class="news_plus"><a href="../newsList.mo">MORE</a></div>
                         </ul>
                       
                       </div>

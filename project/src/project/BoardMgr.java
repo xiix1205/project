@@ -212,7 +212,7 @@ public class BoardMgr {
      try {
    	  con = pool.getConnection();
    	  if(mWord.equals("null")||mWord.equals("")) {
-   		  sql = "select * from movielist order by m_id";
+   		  sql = "select * from movielist order by m_id desc";
    		  pstmt = con.prepareStatement(sql);
 //   		  pstmt.setInt(1, Mstart);
 //   		  pstmt.setInt(2, Mend);

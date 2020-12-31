@@ -12,7 +12,7 @@
         </title>
         <link rel="stylesheet" href="css/write.css?ver=2">
         <link rel="stylesheet" href="css/boardcommon.css?ver=2">
-        <link rel="stylesheet" href="css/common.css?ver=2">
+        <link rel="stylesheet" href="../css/common.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="css/common.js"></script> 
         <script src="css/slide.js"></script> 
@@ -45,28 +45,34 @@
     </head>
     <body>
         <div id="wrapper">
-	        <header id="header">
-	              <h1 class="title" onclick="javascript:location.href='../main/main.jsp'">MOVIEMOA</h1>
-	            <form method="post" action="search.jsp" class="login">
-	               <%if (id != null) {%>
-	                 <span id="hi"><%=id %> 님, 반갑습니다.</span>
-	                 <button type="button" class="login" onclick="javascript:location.href='../login/logout.jsp'">Logout</button>
-	              <%} else {%>
-	              <button type="button" class="login" onclick="javascript:location.href='../login/login.jsp'">Login</button>	
-	              <button type="button" class="login" onclick="javascript:location.href='../login/agree.jsp'">Sign in</button><% } %>
-	              
-		              <input type="text" name="search"  id="search" class="login" placeholder="Search...">
-		              <input type="submit" id="searchBtn">
-	              </form>
-	                  
-	             <nav id="nav">
-	                  <span class="btn" onclick="javascript:location.href='../movieList.mo'">MovieInfo</span>
-	                  <span class="btn" onclick="javascript:location.href='../subpage/boardList.bo?boardtype=BOARDALL'">MovieTalk</span>
-	                  <span class="btn" onclick="javascript:location.href='../news/list.jsp?listtype=1'">MovieNEWS</span>
-	                  <span class="btn" onclick="javascript:location.href='../main/loc.jsp'">Theater</span> 
-	              </nav>
-	                  
-		</header>
+	      <header id="header">
+              <h1 class="title" onclick="javascript:location.href='../main/main.jsp'">MOVIEMOA</h1>
+            <form method="post" action="../main/search.jsp" class="login">
+            
+             <%
+             String ids = request.getParameter("id");
+             if (id == null) {%>
+             <button type="button" class="login" onclick="javascript:location.href='../login/login.jsp'">Login</button>	
+              <button type="button" class="login" onclick="javascript:location.href='../login/agree.jsp'">Sign in</button>
+                 
+               <%}else if(id.equals("admin")){%>  
+                <button type="button" class="login" onclick="javascript:location.href='../adminPage.jsp'">관리자 화면</button>
+                 <button type="button" class="login" onclick="javascript:location.href='../login/logout.jsp'">Logout</button>
+              <%} else if(id != null) {%>
+              <span id="hi"><%=id %> 님, 반갑습니다.</span>
+                 <button type="button" class="login" onclick="javascript:location.href='../login/logout.jsp'">Logout</button><%} %>
+            
+	              <input type="text" name="search"  id="search" class="login" placeholder="Search...">
+	              <input type="submit" id="searchBtn">
+              </form>
+                  
+             <nav id="nav">
+                  <span class="btn" onclick="javascript:location.href='../movieList.mo'">MovieInfo</span>
+                  <span class="btn" onclick="javascript:location.href='boardList.bo?boardtype=BOARDALL'">MovieTalk</span>
+                  <span class="btn" onclick="javascript:location.href='../newsList.mo'">MovieNEWS</span>
+                  <span class="btn" onclick="javascript:location.href='../main/loc.jsp'">Theater</span> 
+              </nav>
+            </header>  
         
         <div class="wrap">
 

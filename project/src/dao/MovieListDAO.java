@@ -63,16 +63,6 @@ public class MovieListDAO {
    
    
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    public ArrayList<MovieList> selectMovieList(int page,int limit){
       
       PreparedStatement pstmt = null;
