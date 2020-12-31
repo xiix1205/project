@@ -12,7 +12,7 @@ String loc = "member.jsp";
 if (result) {
 	System.out.println("성공");
 	msg = "회원가입을 하였습니다.";
-	loc = "../main/main.jsp";
+	loc = "login.jsp";
 }
 %>
 <script>

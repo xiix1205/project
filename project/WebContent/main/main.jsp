@@ -80,18 +80,18 @@
     <script src="jquery.js"></script>
     <script src="../js/jquery.bxslider.min.js"></script>
     <script src="../js/slide.js"></script>
-    <script src="../js/link.js"></script>
     <link rel="stylesheet" href="../css/jquery.bxslider.min.css">
     <link rel="stylesheet" href="../css/shape.css">
      <link rel="stylesheet" href="../css/common.css"> 
-<script> 
+<script>
+
   $(function(){
       $('.post_wrap').bxSlider({
           auto: true,
           pause:4000,
           speed:600,  
-          pager:false
-        
+          pager:false,
+         
       });
   });
   

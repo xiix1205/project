@@ -32,14 +32,19 @@ String id = (String)session.getAttribute("idKey");
 <style type="text/css">
 #main {
 	width: 1200px;
-	height:100%;
 	margin: 0 auto;
+}
+
+#main h2{
+	margin-top:50px;
 }
 
 table {
 	width: 700px;
+	padding-bottom:170px;
 	border-top:1px solid #999;
 }
+
 
 th,td {
 	padding: 12px;
@@ -50,11 +55,32 @@ td{
 	font-size:13px;
 }
 
-textarea {
-	resize: none;
+.memBtn{
+	position:relative;
+	left:10px;
+	padding: 6px;
+	border:1px solid #555;
+	border-radius:15px;
+	background-color:#555;
+	font-size:12px;
+	color:white;
+	letter-spacing:1px;
 }
 
+textarea {
+	width:350px;
+	height:170px;
+}
 
+table tr:last-of-type > td > input{
+	margin:5px;
+	padding: 8px;
+	border:1px solid #555;
+	background-color:#333;
+	font-size:14px;
+	font-weight:bold;
+	color:white;
+}
 
 
 </style>
@@ -90,7 +116,7 @@ textarea {
 			<table cellspacing="0" cellpadding="2">
 				<tr>
 					<td class="mid">아이디</td>
-					<td><input name="id" size="15" /><input type="button" value="ID중복확인" onClick="idCheck(this.form.id.value)"></td>
+					<td><input name="id" size="15" /><input type="button" value="ID중복확인" class="memBtn" onClick="idCheck(this.form.id.value)"></td>
 					
 				</tr>
 				<tr>
@@ -129,7 +155,7 @@ textarea {
 					<td class="mid">주소</td>
 					<td><input class="postcodify_postcode5" value=""
 						name="zipcode" size="5" readonly /> <input
-						id="postcodify_search_button" type="button" value="우편번호찾기" /><br />
+						id="postcodify_search_button" class="memBtn" type="button" value="우편번호찾기" /><br><br>
 						<input class="postcodify_address" name="address" size="45"
 						readonly /><br /> <input type="text" name="details"
 						class="postcodify_details" value="" /></td>
@@ -148,8 +174,7 @@ textarea {
 				</tr>
 				<tr>
 					<td class="mid">소개</td>
-					<td colspan="2"><input type="text"
-						style="width: 509px; height: 304px" name="info" /></td>
+					<td colspan="2"><textarea name="info"></textarea></td>
 				</tr>
 				<tr>
 					<td colspan="3" align="center"><input type="button"
