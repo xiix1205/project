@@ -17,7 +17,7 @@ public class BoardDetailService {
 	      Connection con = getConnection();
 	      BoardDAO boardDAO = BoardDAO.getInstance();
 	      boardDAO.setConnection(con);
-	      int updateCount = boardDAO.updateReadCount(board_num);
+	      int updateCount = boardDAO.updateReadCount(board_num, boardtype);
 	      
 	      if(updateCount > 0){
 	         commit(con);

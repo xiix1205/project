@@ -4,6 +4,7 @@
 <%
 	String id = (String)session.getAttribute("idKey");
 	MovieBean article = (MovieBean)request.getAttribute("article");
+	String boardtype = request.getParameter("boardtype");
 %>
 <!doctype html>
 <html>
@@ -23,7 +24,7 @@
         <div id="wrapper">
 	        <header id="header">
 	              <h1 class="title" onclick="javascript:location.href='../main/main.jsp'">MOVIEMOA</h1>
-	            <form method="post" action="../main/search.jsp" class="login">
+	            <form method="post" action="search.jsp" class="login">
 	               <%if (id != null) {%>
 	                 <span id="hi"><%=id %> 님, 반갑습니다.</span>
 	                 <button type="button" class="login" onclick="javascript:location.href='../login/logout.jsp'">Logout</button>
@@ -37,7 +38,7 @@
 	                  
 	             <nav id="nav">
 	                  <span class="btn" onclick="javascript:location.href='../movieList.mo'">MovieInfo</span>
-	                  <span class="btn" onclick="javascript:location.href='boardList.bo?boardtype=BOARDALL'">MovieTalk</span>
+	                  <span class="btn" onclick="javascript:location.href='../subpage/boardList.bo?boardtype=BOARDALL'">MovieTalk</span>
 	                  <span class="btn" onclick="javascript:location.href='../news/list.jsp?listtype=1'">MovieNEWS</span>
 	                  <span class="btn" onclick="javascript:location.href='../main/loc.jsp'">Theater</span> 
 	              </nav>
@@ -51,6 +52,13 @@
 <!--            광고1-->
                 
                 <div class="writeWrap">
+                	<%if (boardtype.equals("NOTICE")){%>
+                	<div class="sub_tit_wrap">
+	                    <h1 class="contit" style="width : 550px; margin-bottom:10px">관리자용 수정 페이지</h1><br/>
+	                </div>
+	                <div class="sub_tit_wrap2">
+	                </div>
+                	<%} else { %>
                     <div class="sub_tit_wrap">
 	                    <h1 class="contit">ReWriting</h1>
 	                </div>
@@ -58,6 +66,7 @@
 	                        <p>What should I talk about?</p><br/>
 	                        <p>무슨 이야기를 할까요?</p>
 	                </div>
+	                <%} %>
                     
 <!--                    실제 글쓰기 영역-->
                     <div class="writeArea">
@@ -72,11 +81,20 @@
                                         <tr>
                                             <th><label for="subject1"><span>카테고리</span></label></th>
                                             <td>
+                                                <%if ("admin".equals(id)){%>
                                                 <select name="MOVIE_GENRE" class="category">
                                                     <option value="">선택</option>
-                                                    <option value="MOVIE" selected>영화</option>
+                                                    <option value="NOTICE">공지사항</option>
+                                                    <option value="MOVIE">영화</option>
+                                                    <option value="FREE">잡담</option>
+                                                </select>                                            	
+                                            	<%} else { %>
+                                                <select name="MOVIE_GENRE" class="category">
+                                                    <option value="">선택</option>
+                                                    <option value="MOVIE">영화</option>
                                                     <option value="FREE">잡담</option>
                                                 </select>
+                                                <%} %>
                                             </td>
                                         </tr>
                                         <tr>

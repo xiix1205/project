@@ -36,7 +36,7 @@
         <div id="wrapper">
 	        <header id="header">
 	              <h1 class="title" onclick="javascript:location.href='../main/main.jsp'">MOVIEMOA</h1>
-	            <form method="post" action="../main/search.jsp" class="login">
+	            <form method="post" action="search.jsp" class="login">
 	               <%if (id != null) {%>
 	                 <span id="hi"><%=id %> 님, 반갑습니다.</span>
 	                 <button type="button" class="login" onclick="javascript:location.href='../login/logout.jsp'">Logout</button>
@@ -50,7 +50,7 @@
 	                  
 	             <nav id="nav">
 	                  <span class="btn" onclick="javascript:location.href='../movieList.mo'">MovieInfo</span>
-	                  <span class="btn" onclick="javascript:location.href='boardList.bo?boardtype=BOARDALL'">MovieTalk</span>
+	                  <span class="btn" onclick="javascript:location.href='../subpage/boardList.bo?boardtype=BOARDALL'">MovieTalk</span>
 	                  <span class="btn" onclick="javascript:location.href='../news/list.jsp?listtype=1'">MovieNEWS</span>
 	                  <span class="btn" onclick="javascript:location.href='../main/loc.jsp'">Theater</span> 
 	              </nav>
@@ -67,15 +67,21 @@
 	                    </div>
 	                    <div class="sub_tit_wrap2">
 	                        <p>Feel free to talk!</p><br/>
-	                        <p>자유롭게 이야기를 나누세요.</p>
+	                        <p>자유롭게 이야기를 나누세요.</p><br/>
 	                    </div>
+	                    <%if ("admin".equals(id)){%>
+	                    <div>
+	                    	<p style="float:right"><a href="boardWriteForm.bo"><span>관리자용 글쓰기</span></a></p>
+	                    </div>
+	                    <%} else { %>
+	                    <% } %>
 	
 	        <!--                게시판-->
 	                        <div class="category">
 	                            <ul class="categoryTab">
 	                                <li><a href="boardList.bo?boardtype=BOARDALL" class="categoryOn" >ALL(<%=allCount%>)</a></li>
-	                                <!-- <li><a href="#">NOTICE</a></li>
-	                                <li><a href="#">HIT</a></li> -->
+	                                <li><a href="boardList.bo?boardtype=BOARDNOTICE">NOTICE</a></li>
+	                                <!-- <li><a href="#">HIT</a></li> -->
 	                                <li><a href="boardList.bo?boardtype=BOARDMOVIE">MOVIE</a></li>
 	                                <li><a href="boardList.bo?boardtype=BOARDFREE">FREE</a></li>
 	                            </ul>
@@ -101,7 +107,7 @@
 	                            <tbody class="boardContent">
 	
 	                                <tr>
-	                                    <td><span class="index"><%=articleList.get(i).getMOVIE_NUM()%></span></td>
+	                                    <td><span class="index"><%=articleList.size()-i %></span></td>
 	                                    <td>
 		                                    <a href="#" class="genretitle"><span class="genre_category"><%=articleList.get(i).getMOVIE_GENRE()%></span></a>
 	                                    </td>

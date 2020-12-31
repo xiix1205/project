@@ -25,87 +25,65 @@
 	}
 </script>
 <style>
-#login {
- 	width:400px;
-	border:1px solid black;
-	margin:30px;
-	padding:20px;
+#login_wrap{
+	padding-bottom:300px;
 }
 
-#login h1 {
-  margin-top: 20px;
+#login_wrap h1 {
+  margin-top: 80px;
+  text-align:center;
 }
+
+#login {
+  margin: 0 auto;
+  width: 400px;
+  height: 250px;
+  padding:45px 45px 5px;
+  text-align: center;
+  border-top:1px solid #333;
+  border-bottom:1px solid #333;
+}
+
 
 #login label {
   display: inline;
   font-size: 15px;
-  margin-bottom: 10px;
-  margin-top: 30px;
-  margin-right: 20px;
+  font-weight: bold;
+  margin-right:15px;
 }
 
 #login input {
-  margin-bottom: 30px;
-}
-
-#login button {
-  width: 50px;
+  width:250px;
   height: 30px;
-  margin-bottom: 200px;
-  border: 1px solid #bd7261;
-  border-radius: 20px;
-  margin-right: 10px;
-  margin-left: 10px;
-  background-color: #50403f;
-  color: antiquewhite;
-  font-size: 1.2em;
 }
 
-#login button:focus {
-  outline: none;
+.find{
+	position:relative;
+	left:110px;
+	font-size:13px;
+	cursor:pointer;
 }
 
-button a {
-  text-decoration: none;
-  color: antiquewhite;
+#login span:nth-child(2):before{
+	content:"|";
+	margin-right:5px;
 }
 
-button a:link {
-  text-decoration: none;
-  color: antiquewhite;
-}
-
-button a:visited {
-  text-decoration: none;
-  color: antiquewhite;
-}
-
-button a:active {
-  text-decoration: none;
-  color: antiquewhite;
+.inbtn{
+	width:140px;
+	height:30px;
+	margin:13px;
+	margin-top:25px;
+	font-size:13px;
+	font-weight:200;
+	cursor:pointer;
+	background-color:#333;
+	color:white;
 }
 
 
-.btn:hover {
-  filter: invert(100%);
-  text-decoration: underline;
-}
-button a {
-  text-decoration: none;
-  color: antiquewhite;
-}
-button a:link {
-  text-decoration: none;
-  color: antiquewhite;
-}
-button a:visited {
-  text-decoration: none;
-  color: antiquewhite;
-}
-button a:active {
-  text-decoration: none;
-  color: antiquewhite;
-}
+
+
 
 </style>
 </head>
@@ -132,32 +110,35 @@ button a:active {
               </nav>
                   
          </header>
-    <div id="main" align="center">
+    <div id="main">
    
       <form name="loginFrm" method="post" action="loginProc.jsp">
-      
-        <h3>로그인</h3>
-        <div id="login">
-        <label for="ID" style="margin-right: 42px">아이디</label>
-        <input type="text" name="id" id="ID" />
-        <br />
+      <div id="login_wrap">
+        <h1>로그인</h1>
+        <div id = "login">
+        <label for="ID" style="margin-right:27px">아이디</label>
+        <input type="text" name="id" id="ID" placeholder="아이디를 입력하세요.">
+        <p />
         <label for="PW">비밀번호</label>
-        <input type="password" name="pwd" id="PW" />
-        <br />
+        <input type="password" name="pwd" id="PW" placeholder="비밀번호를 입력하세요.">
+        <p />
+        <span class="find" onclick="javascript:location.href='searchid.jsp'">ID 찾기</span>
+       <span  class="find" onclick="javascript:location.href='PwFindOk.jsp'">PWD 찾기</span>
+       <p/>
+        <button class="inbtn" onclick="loginCheck()">로그인</button>
+       <button class="inbtn" onclick="javascript:location.href='agree.jsp'">회원가입</button>
        
-        <input type="button" value="로그인" onclick="loginCheck()">&nbsp;
-       <input type="button" value="회원가입" onClick="javascript:location.href='agree.jsp'">
-       <input type="button" value="아이디 찾기" onclick="javascript:location.href='searchid.jsp'">
-		<input type="button" value="비밀번호 찾기" onclick="javascript:location.href='PwFindOk.jsp'">
-       </div>
+		</div>
+      </div>
       </form>
-      <div id="footer">
-                  <article>
-              copyright@<br><br><hr><br>MOVIE주식회사: 인천광역시 서구 서곶로 284 새터빌딩 4층 연희직업전문학교<p/>대표전화: 032-555-1111&nbsp;/&nbsp;Email: movie@gmail.com 
-                </article>      
-              </div>
+      
       <script src="../src/login.js"></script>
       <script src="../js/link.js"></script>
+    </div>
+    <div id="footer">
+       <article>
+     copyright@<br><br><hr><br>MOVIE주식회사: 인천광역시 서구 서곶로 284 새터빌딩 4층 연희직업전문학교<p/>대표전화: 032-555-1111&nbsp;/&nbsp;Email: movie@gmail.com 
+       </article>      
     </div>
   </body>
 </html>

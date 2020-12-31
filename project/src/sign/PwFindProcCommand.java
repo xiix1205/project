@@ -1,29 +1,20 @@
 package sign;
 
-import static db.JdbcUtil.getConnection;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import java.sql.PreparedStatement;
 
 public class PwFindProcCommand implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		
-		
-		
 		System.out.println("페이지이동완료2");
 		String receiver = request.getParameter("email");
 		String receiver_id = request.getParameter("id");
 		String res = "";
+		
 		MemberDAO mdao = MemberDAO.getInstance();
 		
-		try {
+		
+		try {	
 			res = mdao.PwFind(receiver_id, receiver);
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -42,42 +33,19 @@ public class PwFindProcCommand implements Command {
 			request.setAttribute("pwfind", "fail");
 		}else {
 			try {
-				mdao.updateSecondPw(pw, receiver_id);
+				
+				mdao.updateSecondPw(pw,receiver_id);
+				System.out.println("db에 적용된 비밀번호"  + pw);
+				
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
 			
 			SendMail smail = SendMail.getInstance();
-			smail.sendMail(receiver, receiver_id, pw);;
+			smail.sendMail(receiver, receiver_id, pw);
 			request.setAttribute("pwfind", receiver);
 		}
-		return "/login/PwFindOk.jsp";
+		
+	      return "../login/login.jsp";
 	}
-	
-	
-	
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

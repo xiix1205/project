@@ -1,7 +1,5 @@
 package sign;
 
-import static db.JdbcUtil.getConnection;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -190,55 +188,7 @@ public class MemberMgr {
 	}
 
 	
-	public String getUserEmail(String userId, String userName) {
-		String email=null;
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		String SQL = "SELECT email FROM user WHERE id = ? AND name = ?";
-		
-		try {
-			conn = pool.getConnection();
-			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, userId);
-			pstmt.setString(2, userName);
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				email = rs.getString(1);
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			pool.freeConnection(conn, pstmt,rs);
-		}
-		
-		return email;
-	}
 	
-	
-	public int userPwdChange(String userId, String pwd) {
-		int success = 0;
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		String SQL = "UPDATE user SET pwd = ? WHERE id = ?";
-		
-		try {
-			conn = pool.getConnection();
-			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, pwd);
-			pstmt.setString(2, userId);
-			success = pstmt.executeUpdate();
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			pool.freeConnection(conn, pstmt);
-		}
-		
-		return success;
-	}
 
 
 	

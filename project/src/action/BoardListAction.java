@@ -33,6 +33,8 @@ import vo.PageInfo;
     ///페이지처리 if
       if(boardtype.equalsIgnoreCase("BOARDFREE")) {
     	  listCount = boardListService.getFreeListCount();
+      } else if(boardtype.equalsIgnoreCase("BOARDNOTICE")) {
+    	  listCount = boardListService.getListCount();
       } else {
     	  listCount = boardListService.getListCount();
       }
@@ -46,8 +48,7 @@ import vo.PageInfo;
       if(boardtype.equalsIgnoreCase("BOARDALL"))
       {
     	  articleList = boardListService.getAllArticleList(page,limit,boardtype);
-      
-      }else {
+      } else {
       
     	  articleList = boardListService.getArticleList(page,limit,boardtype);
       }

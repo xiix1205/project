@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.AdminNotice;
 import action.BoardCommentAction;
 import action.BoardCommentDeleteProAction;
 import action.BoardDeleteProAction;
@@ -105,6 +107,13 @@ public class BoardFrontController extends HttpServlet {
 	         try{
 	            forward=action.execute(request, response);
 	         }catch(Exception e){
+	            e.printStackTrace();
+	         }
+	    } else if(command.equals("/boardWritePro.bo")){//관리자페이지 공지사항입니다.
+	         action  = new AdminNotice();
+	         try {
+	            forward= action.execute(request, response);
+	         } catch (Exception e) {
 	            e.printStackTrace();
 	         }
 	    }

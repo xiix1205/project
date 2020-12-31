@@ -62,7 +62,7 @@
          <div id="wrapper">
 	        <header id="header">
 	              <h1 class="title" onclick="javascript:location.href='../main/main.jsp'">MOVIEMOA</h1>
-	            <form method="post" action="../main/search.jsp" class="login">
+	            <form method="post" action="search.jsp" class="login">
 	               <%if (id != null) {%>
 	                 <span id="hi"><%=id %> 님, 반갑습니다.</span>
 	                 <button type="button" class="login" onclick="javascript:location.href='../login/logout.jsp'">Logout</button>
@@ -76,7 +76,7 @@
 	                  
 	             <nav id="nav">
 	                  <span class="btn" onclick="javascript:location.href='../movieList.mo'">MovieInfo</span>
-	                  <span class="btn" onclick="javascript:location.href='boardList.bo?boardtype=BOARDALL'">MovieTalk</span>
+	                  <span class="btn" onclick="javascript:location.href='../subpage/boardList.bo?boardtype=BOARDALL'">MovieTalk</span>
 	                  <span class="btn" onclick="javascript:location.href='../news/list.jsp?listtype=1'">MovieNEWS</span>
 	                  <span class="btn" onclick="javascript:location.href='../main/loc.jsp'">Theater</span> 
 	              </nav>
@@ -99,7 +99,7 @@
 	                
 <!--                    실제 글쓰기 영역-->
                     <div class="contentArea">
-                        <h3 class="tit"><%=article.getMOVIE_SUBJECT()%></h3> <!-- before로 카테고리 만들어주기 -->
+                        <span><%=boardtype %></span><h3 class="tit"><%=article.getMOVIE_SUBJECT()%></h3> <!-- before로 카테고리 만들어주기 -->
                         
 <!--                        글 작성자 정보-->
                         <div class="info">
@@ -117,7 +117,10 @@
                         
 <!--                        작성자 권한 - 수정/삭제 -->
                         <div class="contentEdit">
-                        	<%if (writer.equals(id)){%>
+                        	<%if("admin".equals(id)){ %>
+	                        	<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="boardDeletePro.bo?boardtype=<%=boardtype%>&board_num=<%=board_num%>&page=<%=nowPage%>"><span>삭제</span></a>
+	                            <a href="boardModifyForm.bo?boardtype=<%=boardtype%>&board_num=<%=article.getMOVIE_NUM() %>"><span>수정</span></a>
+                        	<%} else if (writer.equals(id)){%>
                             	<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="boardDeletePro.bo?boardtype=<%=boardtype%>&board_num=<%=board_num%>&page=<%=nowPage%>"><span>삭제</span></a>
                             	<a href="boardModifyForm.bo?boardtype=<%=boardtype%>&board_num=<%=article.getMOVIE_NUM() %>"><span>수정</span></a>
                             <%} else {%>
@@ -125,6 +128,11 @@
                             <% } %>
                         </div>
                         
+                        <%if (boardtype.equals("NOTICE")){%>
+                        <div class="commentTit">
+                        <span style="text-align:center; font-size:13px"> 공지사항엔 댓글 작성을 작성할 수 없습니다. </span>
+                        </div>
+                        <%} else { %>
 <!--                        댓글 타이틀-->
                         <div class="commentTit">
                             <span>댓글</span>
@@ -190,6 +198,7 @@
                             	<a href="boardWriteForm.bo"><span>글쓰기</span></a>
                             <%} %>
                         </div>
+                        <%} %>
                     </div>
                 </div>
 <!--                wrap flex item 3-->

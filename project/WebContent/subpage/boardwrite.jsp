@@ -47,7 +47,7 @@
         <div id="wrapper">
 	        <header id="header">
 	              <h1 class="title" onclick="javascript:location.href='../main/main.jsp'">MOVIEMOA</h1>
-	            <form method="post" action="../main/search.jsp" class="login">
+	            <form method="post" action="search.jsp" class="login">
 	               <%if (id != null) {%>
 	                 <span id="hi"><%=id %> 님, 반갑습니다.</span>
 	                 <button type="button" class="login" onclick="javascript:location.href='../login/logout.jsp'">Logout</button>
@@ -61,7 +61,7 @@
 	                  
 	             <nav id="nav">
 	                  <span class="btn" onclick="javascript:location.href='../movieList.mo'">MovieInfo</span>
-	                  <span class="btn" onclick="javascript:location.href='boardList.bo?boardtype=BOARDALL'">MovieTalk</span>
+	                  <span class="btn" onclick="javascript:location.href='../subpage/boardList.bo?boardtype=BOARDALL'">MovieTalk</span>
 	                  <span class="btn" onclick="javascript:location.href='../news/list.jsp?listtype=1'">MovieNEWS</span>
 	                  <span class="btn" onclick="javascript:location.href='../main/loc.jsp'">Theater</span> 
 	              </nav>
@@ -94,11 +94,20 @@
                                         <tr>
                                             <th><label for="subject"><span>카테고리</span></label></th>
                                             <td>
+                                            	<%if ("admin".equals(id)){%>
+                                                <select name="MOVIE_GENRE" class="category">
+                                                    <option value="">선택</option>
+                                                    <option value="NOTICE">공지사항</option>
+                                                    <option value="MOVIE">영화</option>
+                                                    <option value="FREE">잡담</option>
+                                                </select>                                            	
+                                            	<%} else { %>
                                                 <select name="MOVIE_GENRE" class="category">
                                                     <option value="">선택</option>
                                                     <option value="MOVIE">영화</option>
                                                     <option value="FREE">잡담</option>
                                                 </select>
+                                                <%} %>
                                             </td>
                                         </tr>
                                         <tr>

@@ -66,7 +66,7 @@
 	
 	totalRecord = bMgr.getTotalCount(keyField, keyWord);
 	 String id = (String)session.getAttribute("idKey");
-
+	
 
 %>
 
@@ -103,16 +103,23 @@
 </head>
 <body>
  <div id="wrapper">
-         <header id="header">
+     <header id="header">
               <h1 class="title" onclick="javascript:location.href='main.jsp'">MOVIEMOA</h1>
             <form method="post" action="search.jsp" class="login">
-               <%if (id != null) {%>
-                 <span id="hi"><%=id %> 님, 반갑습니다.</span>
+            
+             <%
+             String ids = request.getParameter("id");
+             if (id == null) {%>
+             <button type="button" class="login" onclick="javascript:location.href='../login/login.jsp'">Login</button>	
+              <button type="button" class="login" onclick="javascript:location.href='../login/agree.jsp'">Sign in</button>
+                 
+               <%}else if(id.equals("admin")){%>  
+                <button type="button" class="login" onclick="javascript:location.href='../adminPage.jsp'">관리자 화면</button>
                  <button type="button" class="login" onclick="javascript:location.href='../login/logout.jsp'">Logout</button>
-              <%} else {%>
-              <button type="button" class="login" onclick="javascript:location.href='../login/login.jsp'">Login</button>	
-              <button type="button" class="login" onclick="javascript:location.href='../login/agree.jsp'">Sign in</button><% } %>
-              
+              <%} else if(id != null) {%>
+              <span id="hi"><%=id %> 님, 반갑습니다.</span>
+                 <button type="button" class="login" onclick="javascript:location.href='../login/logout.jsp'">Logout</button><%} %>
+            
 	              <input type="text" name="search"  id="search" class="login" placeholder="Search...">
 	              <input type="submit" id="searchBtn">
               </form>
@@ -123,8 +130,7 @@
                   <span class="btn" onclick="javascript:location.href='../news/list.jsp?listtype=1'">MovieNEWS</span>
                   <span class="btn" onclick="javascript:location.href='loc.jsp'">Theater</span> 
               </nav>
-                  
-         </header>
+            </header>  
              
              <div id ="slider_wrap">
                 <div id = "side" class="slide">
@@ -141,8 +147,8 @@
                			
                   <section id="section">
                   
-                      <h4 class = "w_title"><article>최신글</article></h4>
-                      <a><h6 class = "w_plus" onclick="board_2()">+더보기</h6></a>
+                      <h4 class = "w_title"><article>영화</article></h4>
+                      <a href="http://localhost:9988/project/subpage/boardList.bo?boardtype=BOARDMOVIE"><h6 class = "w_plus">+더보기</h6></a>
                      <div class="w_content">
                      	<%
 								vlist = bMgr.getBoardList();
@@ -177,8 +183,8 @@
                   </section>
                   
                   <section id="section2">
-                    <h4 class = "w_title"><article>인기글</article></h4>
-                      <a><h6 class = "w_plus" onclick="board_2()">+더보기</h6></a>
+                    <h4 class = "w_title"><article>잡담</article></h4>
+                      <a href="http://localhost:9988/project/subpage/boardList.bo?boardtype=BOARDFREE"><h6 class = "w_plus">+더보기</h6></a>
                       <div class="w_content">
                       	<%
 								blist = bMgr.getBestList(BkeyField, BkeyWord);

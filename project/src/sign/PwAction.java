@@ -29,7 +29,7 @@ public class PwAction extends HttpServlet {
             System.out.println("페이지이동완료1");
             try{
                action.execute(request, response);
-               response.sendRedirect("../login/login.jsp");
+               response.sendRedirect("../login/PwFindOkNext.jsp");
                System.out.println("페이지이동완료3");
             }catch(Exception e){
                e.printStackTrace();

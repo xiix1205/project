@@ -23,7 +23,7 @@ public class BoardListService {
 	      
 	   }
 		
-		// Àâ´ã °Ô½ÃÆÇÀÇ ÆäÀÌÂ¡ Ã³¸®¸¦ À§ÇÑ ListCount ¸Þ¼Òµå //
+		// ï¿½ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ListCount ï¿½Þ¼Òµï¿½ //
 		public int getFreeListCount() throws Exception{
 		      
 		      int listCount = 0;
@@ -36,7 +36,7 @@ public class BoardListService {
 		      
 		   }
 		
-		
+//		all article list
 		public ArrayList<MovieBean> getAllArticleList(int page, int limit,String boardtype) throws Exception{
 		      
 		      ArrayList<MovieBean> articleList = null;
@@ -49,6 +49,7 @@ public class BoardListService {
 		      
 		   }
 		
+//		
 		public ArrayList<MovieBean> getArticleList(int page, int limit,String boardtype) throws Exception{
 		      
 		      ArrayList<MovieBean> articleList = null;
@@ -60,4 +61,16 @@ public class BoardListService {
 		      return articleList;
 		      
 		   }
+		
+//		Notice article list
+//		public ArrayList<MovieBean>getNoticeArticleList(int page, int limit,String boardtype) throws Exception{
+//		      
+//		      ArrayList<MovieBean> articleList = null;
+//		      Connection con = getConnection();
+//		      BoardDAO boardDAO = BoardDAO.getInstance();
+//		      boardDAO.setConnection(con);
+//		      articleList = boardDAO.selectArticleList(page,limit,boardtype);
+//		      close(con);
+//		      return articleList;
+//		   }
 }

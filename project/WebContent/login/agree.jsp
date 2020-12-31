@@ -11,35 +11,17 @@ String id = (String)session.getAttribute("idKey");
     <title>회원가입</title>
      <link rel="stylesheet" href="../css/common.css"> 
     <style>
-      .btn:hover {
-        filter: invert(100%);
-        text-decoration: underline;
-      }
-      button a {
-        text-decoration: none;
-        color: antiquewhite;
-      }
-      button a:link {
-        text-decoration: none;
-        color: antiquewhite;
-      }
-      button a:visited {
-        text-decoration: none;
-        color: antiquewhite;
-      }
-      button a:active {
-        text-decoration: none;
-        color: antiquewhite;
-      }
-
       #main {
-        margin-top: 20px;
-        width: 960px;
+        width: 1200px;
         margin: 0 auto;
-        padding: 30px;
+        padding: 50px;
       }
+      
       table {
-        width: 960px;
+        width: 800px;
+        margin: 0 auto;
+        margin-top:50px;
+        margin-bottom: 150px;
       }
 
       td {
@@ -69,10 +51,12 @@ String id = (String)session.getAttribute("idKey");
       #agree #agreebtnzone {
         text-align: center;
       }
+      
       #agree th {
-        background: #50403f;
-        color: antiquewhite;
-        font-size: 1.5em;
+        background: #555;
+        color: #fff;
+        font-size: 20px;
+        font-weight:normal;
       }
 
       textarea {
@@ -122,9 +106,10 @@ String id = (String)session.getAttribute("idKey");
       #agree #agreebtn {
         width: 150px;
         height: 50px;
-        background-color: #50403f;
         border-radius: 15px;
-        color: antiquewhite;
+        border:1px solid #555;
+        background-color: #555;
+        color: #fff;
       }
       input[type="checkbox"] {
         /* margin: 0; */
@@ -382,12 +367,13 @@ String id = (String)session.getAttribute("idKey");
           </tr>
         </table>
       </div>
-      <div id="footer">
+     
+    </div>
+     <div id="footer">
                   <article>
               copyright@<br><br><hr><br>MOVIE주식회사: 인천광역시 서구 서곶로 284 새터빌딩 4층 연희직업전문학교<p/>대표전화: 032-555-1111&nbsp;/&nbsp;Email: movie@gmail.com 
                 </article>      
               </div>
-    </div>
     <script>
       // 페이지 로드시, 안내문만 보이도록 설정
       window.onload = function () {

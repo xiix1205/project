@@ -49,7 +49,7 @@ public class BoardMgr {
 	      try {
 	    	  con = pool.getConnection();
 	    	  
-	    		  sql = "SELECT * FROM boardmovie UNION all SELECT * FROM boardfree ORDER BY MOVIE_DATE DESC";
+	    		  sql = "SELECT * FROM boardmovie ORDER BY MOVIE_DATE DESC";
 	    		  pstmt = con.prepareStatement(sql);
 	    	  
 	    	  rs = pstmt.executeQuery();
@@ -247,7 +247,7 @@ public class BoardMgr {
 	      try {
 	    	  con = pool.getConnection();
 	    	  if(BkeyWord.equals("null")||BkeyWord.equals("")) {
-	    		  sql = "SELECT * FROM boardfree UNION all SELECT * FROM boardmovie ORDER BY FREE_READCOUNT desc";
+	    		  sql = "SELECT * FROM boardfree ORDER BY FREE_DATE desc";
 	    		  pstmt = con.prepareStatement(sql);
 //	    		  pstmt.setInt(1, Bstart);
 //	    		  pstmt.setInt(2, Bend);
@@ -311,7 +311,7 @@ public class BoardMgr {
       try {
     	  con = pool.getConnection();
     	  if(nWord.equals("null")||nWord.equals("")) {
-    		  sql = "select * from news order by news_num";
+    		  sql = "select * from news order by news_num desc";
     		  pstmt = con.prepareStatement(sql);
 //    		  pstmt.setInt(1, Mstart);
 //    		  pstmt.setInt(2, Mend);

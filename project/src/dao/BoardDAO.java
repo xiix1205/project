@@ -44,7 +44,6 @@ public class BoardDAO {
 
       try{
 
-
          System.out.println("getConnection");
          //���ڵ�
          //pstmt=con.prepareStatement("select count(*) from BOARDMOVIE");
@@ -81,7 +80,6 @@ public class BoardDAO {
 
 	      try{
 
-
 	         System.out.println("getConnection");
 	         //���ڵ�
 	         pstmt=con.prepareStatement("select count(*) from BOARDFREE");
@@ -108,10 +106,13 @@ public class BoardDAO {
     ResultSet rs = null;
     String tName = "FREE";
     
-    String board_list_sql="SELECT * FROM boardfree\r\n"
-    		+ "UNION\r\n"
-    		+ "SELECT * FROM boardmovie\r\n"
-    		+ "ORDER BY free_num desc limit ?,10";
+//    String board_list_sql="SELECT * FROM boardfree\r\n"
+//    		+ "UNION\r\n"
+//    		+ "SELECT * FROM boardmovie\r\n"
+//    		+ "ORDER BY free_num desc limit ?,10";
+    
+    String board_list_sql="SELECT B.*, @num := @num + 1 as rnum, DATE_FORMAT(FREE_DATE, '%Y-%m-%d %H:%i:%s') AS wtime from (SELECT A.* FROM (SELECT * FROM boardfree UNION all SELECT * FROM boardmovie) A ORDER BY free_date) B ORDER BY wtime DESC limit ?,10";
+    
     ArrayList<MovieBean> articleAllList = new ArrayList<MovieBean>();
     MovieBean movieboard = null;
     int startrow=(page-1)*10;
@@ -161,6 +162,8 @@ public class BoardDAO {
     	  tName = "MOVIE";
       } else if(boardtype.equalsIgnoreCase("BOARDFREE")) {
     	  tName = "FREE";
+      } else if(boardtype.equalsIgnoreCase("BOARDNOTICE")) {
+    	  tName = "NOTICE";
       } 
      
      
@@ -376,12 +379,12 @@ public class BoardDAO {
    
 
 //   ��ȸ��
-   public int updateReadCount(int board_num){
+   public int updateReadCount(int board_num, String boardtype){
 
 	      PreparedStatement pstmt = null;
 	      int updateCount = 0;
-	      String sql="update BOARDMOVIE set MOVIE_READCOUNT = "+
-	            "MOVIE_READCOUNT+1 where MOVIE_NUM  = " + board_num;
+	      String sql="update BOARD" +boardtype+ " set " +boardtype+ "_READCOUNT = "+
+	    		 boardtype + "_READCOUNT+1 where " +boardtype+ "_NUM  = " + board_num;
 
 	      try{
 	         pstmt=con.prepareStatement(sql);
@@ -424,7 +427,9 @@ public class BoardDAO {
 			     tName = "MOVIE";
 			    } else if(boardtype.equalsIgnoreCase("FREE")) {
 			     tName = "FREE";
-			    }
+			    } else if(boardtype.equalsIgnoreCase("NOTICE")) {
+				     tName = "NOTICE";
+				    }
 	         
 	         if(rs.next()){
 	        	movieBean = new MovieBean();

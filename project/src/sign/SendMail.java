@@ -28,8 +28,8 @@ public class SendMail {
 	static final String FROM = "MOVIEMOA";
 	static final String FROMNAME = "무비모아";
 	
-	static final String SMTP_USERNAME = "kimhappy93@gmail.com";
-	static final String SMTP_PASSWORD = "rladbal1!";
+	static final String SMTP_USERNAME = "";
+	static final String SMTP_PASSWORD = "";
 	
 	static final String HOST = "smtp.gmail.com";
 	static final int PORT = 587;
@@ -75,6 +75,7 @@ public class SendMail {
 			transport.sendMessage(msg, msg.getAllRecipients());
 			
 			System.out.println("전송완료");
+			
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}finally {
@@ -85,6 +86,22 @@ public class SendMail {
 				e.printStackTrace();
 			}
 		}
+		
+		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
